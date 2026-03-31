@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-surface: #0f1419;
+  --color-surface-container-low: #171c21;
+  --color-surface-container-lowest: #0a0f14;
+  --color-surface-container-high: #252a30;
+  --color-surface-container-highest: #30353b;
+  --color-surface-bright: #353a3f;
+  --color-surface-variant: #30353b;
+  
+  --color-primary: #ffb693;
+  --color-primary-container: #ff6b00;
+  --color-on-primary: #561f00;
+  
+  --color-secondary: #bbc7da;
+  --color-secondary-container: #3e4a59;
+  
+  --color-tertiary: #40dcd1;
+  --color-tertiary-container: #00aba2;
+  
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  
+  --color-outline: #a98a7d;
+  --color-outline-variant: #5a4136;
+
+  --radius-xl: 0.5rem;
+  --radius-2xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-[#dee3ea] font-body selection:bg-primary/30;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-2xl bg-surface/80 border border-white/5;
+  }
+  
+  .safety-glow {
+    background: linear-gradient(135deg, #ffb693 0%, #ff6b00 100%);
+  }
+  
+  .safety-glow:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 30px rgba(255, 107, 0, 0.4);
+  }
+
+  .chat-scroll-area::-webkit-scrollbar {
+    width: 4px;
+  }
+  .chat-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .chat-scroll-area::-webkit-scrollbar-thumb {
+    @apply bg-surface-container-highest rounded-full;
+  }
+}
